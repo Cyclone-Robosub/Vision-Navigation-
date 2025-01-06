@@ -1,0 +1,3 @@
+/home/robosub/navigation/build/CMakeFiles/opencv_test.dir
+/home/robosub/navigation/build/CMakeFiles/edit_cache.dir
+/home/robosub/navigation/build/CMakeFiles/rebuild_cache.dir
