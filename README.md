@@ -6,5 +6,10 @@ Navigation CrossPLA is a cross-platform navigation project written in C++ and co
 
 ### Windows
 ```powershell
+.\scripts\build_and_run.ps1 -Clean -Debug
+```
+or if we want a release format we can do:
+```powershell
 .\scripts\build_and_run.ps1 -Clean -Release
-
+```
+Plus, any of -(Clean | Debug | Release) should work.
