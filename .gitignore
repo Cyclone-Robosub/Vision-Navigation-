@@ -1,4 +1,7 @@
 build/
 CMakeFiles/
-*.vcxproj
+CMakeCache.txt
+*.exe
+*.obj
+*.vcxproj*
 *.sln
