@@ -2,7 +2,7 @@
 
 if [[ "$1" == "build" ]]; then
     echo "[INFO] Building Docker image..."
-    docker build -t vision-navigation .
+    docker build -t vision-navigation ..
 elif [[ "$1" == "run" ]]; then
     echo "[INFO] Running Docker container..."
     docker run --rm -it \
