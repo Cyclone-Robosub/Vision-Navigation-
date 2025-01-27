@@ -8,7 +8,7 @@ Navigation CrossPLA is a cross-platform navigation project written in C++ and co
 
 2. Installing Opencv, Depending on your OS once again pick the correct download.
         Opencv (OpenCV – 4.10.0) = [text](https://opencv.org/releases/)
-            In my case it is windows. click on windows button then install to a path for me it is [text](C:\opencv)
+            In my case it is windows. click on windows button then install to a path for me it is C:\opencv
 
 
 # Setup Environment Variables
