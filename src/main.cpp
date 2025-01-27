@@ -3,6 +3,18 @@
 #include <vector>
 #include <cmath>
 
+/**
+ * @brief Preprocesses input image to detect and enhance edges.
+ * 
+ * 1. Converts image to grayscale.
+ * 2. Gaussian blur to reduce noise.
+ * 3. Canny edge detection algorithm.
+ * 4. Dilation to thicken edges.
+ * 5. Erosion to refine edges.
+ * 
+ * @param img The input image (cv::Mat) in BGR format.
+ * @return cv::Mat The preprocessed image with refined edges.
+ */
 cv::Mat preprocess(const cv::Mat &img) {
     cv::Mat gray, blurImg, canny, dilateImg, erodeImg;
 
@@ -17,6 +29,13 @@ cv::Mat preprocess(const cv::Mat &img) {
     return erodeImg;
 }
 
+/**
+ * @brief Finds a tip point from a polygon approximation and its convex hull.
+ * 
+ * @param approx The polygon approximation as a vector<cv::Point>.
+ * @param hull A vector<int> of convex hull indices corresponding to points in `approx`.
+ * @return cv::Point The tip if found, or `cv::Point(-1, -1)` if no valid tip exists.
+ */
 cv::Point find_tip(const std::vector<cv::Point> &approx, const std::vector<int> &hull) {
     std::vector<int> indices;
     for (int i = 0; i < static_cast<int>(approx.size()); i++) {
@@ -45,8 +64,15 @@ cv::Point find_tip(const std::vector<cv::Point> &approx, const std::vector<int> 
     return cv::Point(-1, -1);
 }
 
-// Determine Arrow Direction
-std::string get_direction(const cv::Point &tip, const cv::Rect &boundingBox) {
+/**
+ * @brief Determines the direction of a point relative to the center of a bounding box.
+ * 
+ * @param tip The cv::Point used to calculate the direction for.
+ * @param boundingBox The bounding box as a cv::Rect, used to calculate the center.
+ * 
+ * @return A std::string representing the direction of the point as "Left", "Right", "Up", or "Down".
+ */
+std::string get_arrow_direction(const cv::Point &tip, const cv::Rect &boundingBox) {
     cv::Point center = (boundingBox.tl() + boundingBox.br()) * 0.5;
     int dx = tip.x - center.x;
     int dy = tip.y - center.y;
@@ -92,7 +118,7 @@ int main() {
                 cv::Point arrow_tip = find_tip(approx, hullIndices);
                 if (arrow_tip != cv::Point(-1, -1)) {
                     cv::Rect boundingBox = cv::boundingRect(cnt);
-                    std::string direction = get_direction(arrow_tip, boundingBox);
+                    std::string direction = get_arrow_direction(arrow_tip, boundingBox);
 
                     cv::drawContours(frame, std::vector<std::vector<cv::Point>>{cnt},
                                      -1, cv::Scalar(0, 255, 0), 2);
