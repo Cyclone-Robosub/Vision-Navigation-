@@ -58,6 +58,12 @@ std::string get_direction(const cv::Point &tip, const cv::Rect &boundingBox) {
     return "Left";
 }
 
+void printAngle(double angle) {
+    angle = std::fmod(angle, 360);
+    if (angle < 0) angle += 360.0;
+    std::cout << "Degrees: " << angle;
+}
+
 int main() {
     cv::VideoCapture cap(0);
     if (!cap.isOpened()) {
