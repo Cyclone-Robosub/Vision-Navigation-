@@ -5,3 +5,5 @@ CMakeCache.txt
 *.obj
 *.vcxproj*
 *.sln
+
+.DS_Store
