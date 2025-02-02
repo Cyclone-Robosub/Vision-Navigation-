@@ -34,5 +34,5 @@ Navigation CrossPLA is a cross-platform navigation project written in C++ and co
 
 ### Windows and Mac
 ```PowerShell
-.\scripts\build_and_run.ps1
+.\build_and_run.ps1
 ```
