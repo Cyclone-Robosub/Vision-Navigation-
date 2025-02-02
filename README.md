@@ -13,3 +13,18 @@ or if we want a release format we can do:
 .\scripts\build_and_run.ps1 -Clean -Release
 ```
 Plus, any of -(Clean | Debug | Release) should work.
+
+### Macs
+
+Run this if you have never installed the dependency, (opencv, clang, cmake, etc)
+```bash
+./scripts/mac_setup.sh
+```
+And run this any time you want to build and execute the navigation program.
+```bash
+./scripts/build-and_run.sh debug
+```
+or release:
+```bash
+./scripts/build-and_run.sh release
+```
