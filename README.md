@@ -30,9 +30,40 @@ Navigation CrossPLA is a cross-platform navigation project written in C++ and co
    ```C:\opencv\build\x64\vc16\bin```
    ```C:\opencv\build\x64\vc16\lib```
 
+# Alternative: Set up for WSL
+
+## Windows (10/11)
+
+1. Enable Wsl for Windows.
+    1. Enable the wsl feature.
+        1. Look up in the windows search bar “turn windows features on or off”. Open the panel.
+        2. Find the “Windows Subsystem for Linux” feature and tick the checkbox to enable it.
+        3. Restart your machine. Make sure that you have all important work saved before restarting.
+    2. Install Ubuntu
+        1. search up “Ubuntu” in the Microsoft Store.
+        2. Click on “Get” button.
+        3. After installation finishes, open the Windows terminal.
+        4. On the list of tabs, there should be a dropdown button that looks like the letter (V). Click on it and select Ubuntu.
+        5. Follow the instructions if prompted
+    3. Install the needed packages
+        1. Run the following commands
+        
+        ```bash
+        sudo apt update && sudo apt upgrade
+        sudo apt install -y build-essential ninja-build cmake libopencv-dev
+        ```
+        
+    4. If you do not have vscode, install vscode. Packages are found ([here](https://code.visualstudio.com/Download)).
+    5. Open up vscode.
+    6. (Optional) Set up a profile for C/C++ development specifically. ([link](https://code.visualstudio.com/docs/editor/profiles))
+    7. Follow the instructions [here](https://code.visualstudio.com/docs/remote/wsl) until you have Ubuntu open in vscode. You will do this everytime you open up vscode.
+    8. Download the C/C++ extension, CMake Tools extension.
+    9. When the project is open, pick gcc as compiler if prompted.
+
 ## Build Instructions
 
 ### Windows and Mac
 ```PowerShell
 .\build_and_run.ps1
 ```
+
