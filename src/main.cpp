@@ -139,7 +139,7 @@ void displayFrames(const std::string& window_name, const std::vector<cv::Mat>& f
             if (idx < frames.size()) {
                 row_frames.push_back(frames[idx]);
             } else {
-                row_frames.push_back(cv::Mat::zeros(frames[0].size(), frames[0].type()));
+                row_frames.push_back(cv::Mat::zeros(frames.front().size(), frames.front().type()));
             }
         }
         
@@ -195,11 +195,9 @@ int main() {
                     cv::Rect bounding_box = cv::boundingRect(cnt);
                     std::string direction = getArrowDirection(arrow_tip, bounding_box);
 
-                    for (size_t i = 0; i < frames_display.size(); i++) {
-                        cv::drawContours(frames_display[i], std::vector<std::vector<cv::Point>>{cnt}, -1, cv::Scalar(0, 255, 0), 2);
-                        cv::circle(frames_display[i], arrow_tip, 5, cv::Scalar(0, 0, 255), cv::FILLED);
-                        cv::putText(frames_display[i], "Dir: " + direction, arrow_tip + cv::Point(30, 30), cv::FONT_HERSHEY_PLAIN, 2, cv::Scalar(255, 0, 0), 2);
-                    }
+                    cv::drawContours(frames_display.front(), std::vector<std::vector<cv::Point>>{cnt}, -1, cv::Scalar(0, 255, 0), 2);
+                    cv::circle(frames_display.front(), arrow_tip, 5, cv::Scalar(0, 0, 255), cv::FILLED);
+                    cv::putText(frames_display.front(), "Dir: " + direction, arrow_tip + cv::Point(30, 30), cv::FONT_HERSHEY_PLAIN, 2, cv::Scalar(255, 0, 0), 2);
                 }
             }
         }
