@@ -10,4 +10,4 @@ cmake -B .\build\
 cmake --build .\build\
 
 # Execute the resulting executable
-& .\build\Debug\opencv_test.exe
+& .\build\Debug\OpenCV_vision.exe
